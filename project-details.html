@@ -13,9 +13,10 @@
   <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
-  <!-- Core Stylesheets -->
+  <!-- Core & Animation Stylesheets -->
   <link rel="stylesheet" href="assets/css/main.css">
   <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/animations.css">
 </head>
 <body>
 
@@ -88,7 +89,7 @@
 
       if (!projectId) {
         container.innerHTML = `
-          <div class="card" style="text-align: center; padding: 3rem;">
+          <div class="card reveal-up active" style="text-align: center; padding: 3rem;">
             <h3 style="margin-bottom: 1rem;">No Project Specified</h3>
             <p style="margin-bottom: 1.5rem;">Please select a project from the gallery to view its detailed case study.</p>
             <a href="projects.html" class="btn btn-primary">Go to Projects Gallery</a>
@@ -105,7 +106,7 @@
 
         if (!project) {
           container.innerHTML = `
-            <div class="card" style="text-align: center; padding: 3rem;">
+            <div class="card reveal-up active" style="text-align: center; padding: 3rem;">
               <h3 style="margin-bottom: 1rem;">Project Not Found</h3>
               <p style="margin-bottom: 1.5rem;">The requested project case study could not be located.</p>
               <a href="projects.html" class="btn btn-primary">Go to Projects Gallery</a>
@@ -121,7 +122,7 @@
           metricsHtml = `
             <div style="display: grid; grid-template-columns: repeat(${metricKeys.length}, 1fr); gap: 1.5rem; margin: 2rem 0;">
               ${metricKeys.map(key => `
-                <div class="card" style="text-align: center; padding: 1.5rem;">
+                <div class="card reveal-up active" style="text-align: center; padding: 1.5rem;">
                   <h4 style="font-size: 1.75rem; color: var(--accent-primary); margin-bottom: 0.25rem;">${project.metrics[key]}</h4>
                   <p style="font-size: 0.85rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.05em; margin: 0;">${key.replace(/([A-Z])/g, ' $1')}y</p>
                 </div>
@@ -146,7 +147,7 @@
         const toolsHtml = project.tools.map(tool => `<span class="badge">${tool}</span>`).join('');
 
         container.innerHTML = `
-          <div>
+          <div class="reveal-up active">
             <span class="badge" style="margin-bottom: 1rem;">${project.category}</span>
             <h1 style="font-size: 2.5rem; margin-bottom: 1rem;">${project.title}</h1>
             <p style="font-size: 1.15rem; color: var(--text-secondary); margin-bottom: 1.5rem;">${project.shortDescription}</p>
@@ -163,7 +164,7 @@
             ${metricsHtml}
 
             <!-- Business Problem & Objectives -->
-            <div class="card" style="margin-bottom: 2rem;">
+            <div class="card reveal-up active" style="margin-bottom: 2rem;">
               <h3 style="font-size: 1.4rem; margin-bottom: 1rem;"><i class="fas fa-exclamation-triangle" style="color: var(--accent-primary); margin-right: 0.5rem;"></i> Business Problem & Objectives</h3>
               <p style="margin-bottom: 1.25rem; line-height: 1.7;">${project.businessProblem}</p>
               <h4 style="font-size: 1.1rem; margin-bottom: 0.75rem;">Key Analytical Objectives:</h4>
@@ -173,7 +174,7 @@
             </div>
 
             <!-- Dataset & Cleaning -->
-            <div class="card" style="margin-bottom: 2rem;">
+            <div class="card reveal-up active" style="margin-bottom: 2rem;">
               <h3 style="font-size: 1.4rem; margin-bottom: 1rem;"><i class="fas fa-database" style="color: var(--accent-primary); margin-right: 0.5rem;"></i> Dataset & Data Cleaning Process</h3>
               <p style="margin-bottom: 1.25rem; line-height: 1.7;"><strong>Dataset Overview:</strong> ${project.datasetDescription}</p>
               <h4 style="font-size: 1.1rem; margin-bottom: 0.75rem;">Data Hygiene & Cleaning Steps:</h4>
@@ -183,7 +184,7 @@
             </div>
 
             <!-- Exploratory Analysis & Code Snippet -->
-            <div class="card" style="margin-bottom: 2rem;">
+            <div class="card reveal-up active" style="margin-bottom: 2rem;">
               <h3 style="font-size: 1.4rem; margin-bottom: 1rem;"><i class="fas fa-code" style="color: var(--accent-primary); margin-right: 0.5rem;"></i> Exploratory Analysis & Querying</h3>
               <p style="margin-bottom: 1.25rem; line-height: 1.7;">${project.exploratoryAnalysis}</p>
               <h4 style="font-size: 1.1rem; margin-bottom: 0.75rem;">Representative Code / SQL Query:</h4>
@@ -193,7 +194,7 @@
             </div>
 
             <!-- Key Insights & Recommendations -->
-            <div class="card">
+            <div class="card reveal-up active">
               <h3 style="font-size: 1.4rem; margin-bottom: 1rem;"><i class="fas fa-chart-pie" style="color: var(--accent-primary); margin-right: 0.5rem;"></i> Key Findings & Strategic Recommendations</h3>
               
               <h4 style="font-size: 1.1rem; margin-bottom: 0.75rem; color: var(--accent-primary);">Important Findings:</h4>
@@ -213,7 +214,7 @@
       } catch (error) {
         console.error('Error loading project details:', error);
         container.innerHTML = `
-          <div class="card" style="text-align: center; padding: 3rem;">
+          <div class="card reveal-up active" style="text-align: center; padding: 3rem;">
             <h3 style="margin-bottom: 1rem;">Error Loading Case Study</h3>
             <p style="margin-bottom: 1.5rem;">Please ensure you are running the project through a local server (Visual Studio Code Live Server).</p>
             <a href="projects.html" class="btn btn-primary">Go to Projects Gallery</a>
@@ -222,5 +223,8 @@
       }
     });
   </script>
+  
+  <!-- Animations Script -->
+  <script src="assets/js/animations.js"></script>
 </body>
 </html>
