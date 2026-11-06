@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Me | Data Analyst Portfolio</title>
+  
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Core Stylesheets -->
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+</head>
+<body>
+
+  <!-- ==================== HEADER & NAVIGATION ==================== -->
+  <header class="header">
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <i class="fas fa-chart-line"></i> Oyeniran<span>.data</span>
+      </a>
+      
+      <nav class="nav-menu">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="skills.html" class="nav-link">Skills</a>
+        <a href="projects.html" class="nav-link">Projects</a>
+        <a href="experience.html" class="nav-link">Experience</a>
+        <a href="certifications.html" class="nav-link">Certifications</a>
+        <a href="resume.html" class="nav-link">Resume</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <button class="theme-toggle" aria-label="Toggle dark/light mode">
+          <i class="fas fa-moon"></i>
+        </button>
+        <button class="hamburger" aria-label="Toggle mobile menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== ABOUT HERO SECTION ==================== -->
+  <section class="section" style="padding-top: calc(var(--nav-height) + 3rem);">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge" style="margin-bottom: 0.75rem;">Professional Background</span>
+        <h2>About Me & Academic Journey</h2>
+        <p>Combining rigorous computer science theory with practical, data-driven problem solving.</p>
+      </div>
+
+      <!-- Main Biography Grid -->
+      <div style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 3rem; align-items: start; margin-bottom: 4rem;" class="about-grid">
+        
+        <div class="card" style="padding: 2.5rem;">
+          <div style="width: 100px; height: 100px; border-radius: 50%; background: var(--accent-gradient); display: flex; align-items: center; justify-content: center; color: white; font-size: 2.5rem; margin-bottom: 1.5rem; box-shadow: var(--shadow-sm);">
+            <i class="fas fa-graduation-cap"></i>
+          </div>
+          <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">Oyeniran Moshood Olayinka</h3>
+          <p style="color: var(--accent-primary); font-weight: 600; margin-bottom: 1rem;">Data Analyst & Computer Scientist</p>
+          <p style="font-size: 0.95rem; line-height: 1.7; margin-bottom: 1.5rem;">
+            Graduated with First Class Honors in Computer Science from Lagos State University (LASU) and currently pursuing a Master's degree in Information Technology at the National Open University of Nigeria (NOUN).
+          </p>
+          <div style="display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.95rem; color: var(--text-secondary);">
+            <div><i class="fas fa-map-marker-alt" style="color: var(--accent-primary); width: 24px;"></i> Nigeria</div>
+            <div><i class="fas fa-envelope" style="color: var(--accent-primary); width: 24px;"></i> contact@oyenirandata.com</div>
+            <div><i class="fas fa-briefcase" style="color: var(--accent-primary); width: 24px;"></i> Open to Analytics Roles</div>
+          </div>
+        </div>
+
+        <div>
+          <h3 style="font-size: 1.75rem; margin-bottom: 1.25rem;">Driving Business Decisions Through Data</h3>
+          <p style="font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.5rem;">
+            In today's data-driven economy, organizations are inundated with raw information but often lack clear actionable insights. My analytical philosophy bridges advanced computational frameworks with intuitive visualization, ensuring decision-makers can interpret metrics effortlessly.
+          </p>
+          <p style="font-size: 1.05rem; line-height: 1.8; margin-bottom: 2rem;">
+            Whether cleaning complex transactional datasets with Python and SQL, structuring relational databases, or designing executive dashboards in Power BI and Tableau, my focus remains strictly on accuracy, reproducibility, and measurable business impact.
+          </p>
+          <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            <a href="skills.html" class="btn btn-primary">View Technical Skills</a>
+            <a href="contact.html" class="btn btn-outline">Get in Touch</a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Educational Background & Achievements -->
+      <div style="margin-top: 5rem;">
+        <div class="section-header" style="margin-bottom: 2.5rem;">
+          <h2 style="font-size: 1.85rem;">Education & Academic Distinction</h2>
+          <p>Foundational academic training backing up professional competency.</p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem;">
+          
+          <div class="card">
+            <span class="badge" style="margin-bottom: 1rem;">Postgraduate Studies</span>
+            <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;">Master of Science in Information Technology</h3>
+            <p style="color: var(--accent-primary); font-weight: 600; font-size: 0.95rem; margin-bottom: 1rem;">National Open University of Nigeria (NOUN)</p>
+            <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6;">
+              Advanced coursework covering Software Engineering Methodologies, Advanced Information Storage and Retrieval, Database Management Systems, and Advanced Systems Analysis and Design.
+            </p>
+          </div>
+
+          <div class="card">
+            <span class="badge" style="margin-bottom: 1rem;">Undergraduate Degree</span>
+            <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;">B.Sc. Computer Science (First Class Honors)</h3>
+            <p style="color: var(--accent-primary); font-weight: 600; font-size: 0.95rem; margin-bottom: 1rem;">Lagos State University (LASU)</p>
+            <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6;">
+              Graduated with First Class Honors, building a robust foundation in algorithmic problem solving, database design, software engineering methodologies, and statistical analysis.
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 Oyeniran Moshood Olayinka. All rights reserved. Built with precision & professional data standards.</p>
+    </div>
+  </footer>
+
+  <!-- Global JavaScript -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

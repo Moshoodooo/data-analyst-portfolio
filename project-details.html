@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Deep-Dive Case Study | Data Analyst Portfolio</title>
+  
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Core Stylesheets -->
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+</head>
+<body>
+
+  <!-- ==================== HEADER & NAVIGATION ==================== -->
+  <header class="header">
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <i class="fas fa-chart-line"></i> Oyeniran<span>.data</span>
+      </a>
+      
+      <nav class="nav-menu">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="skills.html" class="nav-link">Skills</a>
+        <a href="projects.html" class="nav-link">Projects</a>
+        <a href="experience.html" class="nav-link">Experience</a>
+        <a href="certifications.html" class="nav-link">Certifications</a>
+        <a href="resume.html" class="nav-link">Resume</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <button class="theme-toggle" aria-label="Toggle dark/light mode">
+          <i class="fas fa-moon"></i>
+        </button>
+        <button class="hamburger" aria-label="Toggle mobile menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== PROJECT DETAILS CONTENT ==================== -->
+  <section class="section" style="padding-top: calc(var(--nav-height) + 3rem);">
+    <div class="container" style="max-width: 900px;">
+      
+      <!-- Back Link -->
+      <div style="margin-bottom: 2rem;">
+        <a href="projects.html" style="color: var(--accent-primary); font-weight: 600; font-size: 0.95rem; display: inline-flex; align-items: center; gap: 0.5rem;">
+          <i class="fas fa-arrow-left"></i> Back to Projects Gallery
+        </a>
+      </div>
+
+      <!-- Dynamic Project Details Container -->
+      <div id="project-detail-container">
+        <p style="text-align: center; color: var(--text-secondary); padding: 4rem 0;">Loading project case study...</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 Oyeniran Moshood Olayinka. All rights reserved. Built with precision & professional data standards.</p>
+    </div>
+  </footer>
+
+  <!-- Global JavaScript -->
+  <script src="assets/js/main.js"></script>
+  
+  <!-- Inline Case Study Renderer Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      const container = document.getElementById('project-detail-container');
+      const urlParams = new URLSearchParams(window.location.search);
+      const projectId = urlParams.get('id');
+
+      if (!projectId) {
+        container.innerHTML = `
+          <div class="card" style="text-align: center; padding: 3rem;">
+            <h3 style="margin-bottom: 1rem;">No Project Specified</h3>
+            <p style="margin-bottom: 1.5rem;">Please select a project from the gallery to view its detailed case study.</p>
+            <a href="projects.html" class="btn btn-primary">Go to Projects Gallery</a>
+          </div>
+        `;
+        return;
+      }
+
+      try {
+        const response = await fetch('assets/data/projects.json');
+        if (!response.ok) throw new Error('Failed to load project database.');
+        const data = await response.json();
+        const project = data.projects.find(p => p.id === projectId);
+
+        if (!project) {
+          container.innerHTML = `
+            <div class="card" style="text-align: center; padding: 3rem;">
+              <h3 style="margin-bottom: 1rem;">Project Not Found</h3>
+              <p style="margin-bottom: 1.5rem;">The requested project case study could not be located.</p>
+              <a href="projects.html" class="btn btn-primary">Go to Projects Gallery</a>
+            </div>
+          `;
+          return;
+        }
+
+        // Render Metrics HTML if present
+        let metricsHtml = '';
+        if (project.metrics) {
+          const metricKeys = Object.keys(project.metrics);
+          metricsHtml = `
+            <div style="display: grid; grid-template-columns: repeat(${metricKeys.length}, 1fr); gap: 1.5rem; margin: 2rem 0;">
+              ${metricKeys.map(key => `
+                <div class="card" style="text-align: center; padding: 1.5rem;">
+                  <h4 style="font-size: 1.75rem; color: var(--accent-primary); margin-bottom: 0.25rem;">${project.metrics[key]}</h4>
+                  <p style="font-size: 0.85rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.05em; margin: 0;">${key.replace(/([A-Z])/g, ' $1')}y</p>
+                </div>
+              `).join('')}
+            </div>
+          `;
+        }
+
+        // Render Cleaning Steps
+        const cleaningHtml = project.dataCleaningProcess.map(step => `<li style="margin-bottom: 0.5rem; display: flex; align-items: flex-start; gap: 0.75rem;"><i class="fas fa-check-circle" style="color: var(--accent-primary); margin-top: 0.25rem;"></i><span>${step}</span></li>`).join('');
+
+        // Render Objectives
+        const objectivesHtml = project.objectives.map(obj => `<li style="margin-bottom: 0.5rem; display: flex; align-items: flex-start; gap: 0.75rem;"><i class="fas fa-bullseye" style="color: var(--accent-primary); margin-top: 0.25rem;"></i><span>${obj}</span></li>`).join('');
+
+        // Render Insights
+        const insightsHtml = project.keyInsights.map(ins => `<li style="margin-bottom: 0.5rem; display: flex; align-items: flex-start; gap: 0.75rem;"><i class="fas fa-lightbulb" style="color: var(--accent-primary); margin-top: 0.25rem;"></i><span>${ins}</span></li>`).join('');
+
+        // Render Recommendations
+        const recsHtml = project.businessRecommendations.map(rec => `<li style="margin-bottom: 0.5rem; display: flex; align-items: flex-start; gap: 0.75rem;"><i class="fas fa-chart-line" style="color: var(--accent-primary); margin-top: 0.25rem;"></i><span>${rec}</span></li>`).join('');
+
+        // Render Tools
+        const toolsHtml = project.tools.map(tool => `<span class="badge">${tool}</span>`).join('');
+
+        container.innerHTML = `
+          <div>
+            <span class="badge" style="margin-bottom: 1rem;">${project.category}</span>
+            <h1 style="font-size: 2.5rem; margin-bottom: 1rem;">${project.title}</h1>
+            <p style="font-size: 1.15rem; color: var(--text-secondary); margin-bottom: 1.5rem;">${project.shortDescription}</p>
+            
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 2rem;">
+              ${toolsHtml}
+            </div>
+
+            <div style="display: flex; gap: 1rem; margin-bottom: 2.5rem;">
+              <a href="${project.githubUrl}" target="_blank" class="btn btn-outline"><i class="fab fa-github"></i> View GitHub Repository</a>
+              <a href="${project.liveDemoUrl}" target="_blank" class="btn btn-primary"><i class="fas fa-external-link-alt"></i> View Live Dashboard</a>
+            </div>
+
+            ${metricsHtml}
+
+            <!-- Business Problem & Objectives -->
+            <div class="card" style="margin-bottom: 2rem;">
+              <h3 style="font-size: 1.4rem; margin-bottom: 1rem;"><i class="fas fa-exclamation-triangle" style="color: var(--accent-primary); margin-right: 0.5rem;"></i> Business Problem & Objectives</h3>
+              <p style="margin-bottom: 1.25rem; line-height: 1.7;">${project.businessProblem}</p>
+              <h4 style="font-size: 1.1rem; margin-bottom: 0.75rem;">Key Analytical Objectives:</h4>
+              <ul style="list-style: none; padding: 0;">
+                ${objectivesHtml}
+              </ul>
+            </div>
+
+            <!-- Dataset & Cleaning -->
+            <div class="card" style="margin-bottom: 2rem;">
+              <h3 style="font-size: 1.4rem; margin-bottom: 1rem;"><i class="fas fa-database" style="color: var(--accent-primary); margin-right: 0.5rem;"></i> Dataset & Data Cleaning Process</h3>
+              <p style="margin-bottom: 1.25rem; line-height: 1.7;"><strong>Dataset Overview:</strong> ${project.datasetDescription}</p>
+              <h4 style="font-size: 1.1rem; margin-bottom: 0.75rem;">Data Hygiene & Cleaning Steps:</h4>
+              <ul style="list-style: none; padding: 0;">
+                ${cleaningHtml}
+              </ul>
+            </div>
+
+            <!-- Exploratory Analysis & Code Snippet -->
+            <div class="card" style="margin-bottom: 2rem;">
+              <h3 style="font-size: 1.4rem; margin-bottom: 1rem;"><i class="fas fa-code" style="color: var(--accent-primary); margin-right: 0.5rem;"></i> Exploratory Analysis & Querying</h3>
+              <p style="margin-bottom: 1.25rem; line-height: 1.7;">${project.exploratoryAnalysis}</p>
+              <h4 style="font-size: 1.1rem; margin-bottom: 0.75rem;">Representative Code / SQL Query:</h4>
+              <div style="background: var(--bg-primary); padding: 1.25rem; border-radius: 8px; border: 1px solid var(--border-color); overflow-x: auto;">
+                <pre style="font-family: 'Courier New', Courier, monospace; font-size: 0.9rem; color: var(--text-primary); margin: 0;"><code>${project.codeSnippet}</code></pre>
+              </div>
+            </div>
+
+            <!-- Key Insights & Recommendations -->
+            <div class="card">
+              <h3 style="font-size: 1.4rem; margin-bottom: 1rem;"><i class="fas fa-chart-pie" style="color: var(--accent-primary); margin-right: 0.5rem;"></i> Key Findings & Strategic Recommendations</h3>
+              
+              <h4 style="font-size: 1.1rem; margin-bottom: 0.75rem; color: var(--accent-primary);">Important Findings:</h4>
+              <ul style="list-style: none; padding: 0; margin-bottom: 1.5rem;">
+                ${insightsHtml}
+              </ul>
+
+              <h4 style="font-size: 1.1rem; margin-bottom: 0.75rem; color: var(--accent-primary);">Business Recommendations:</h4>
+              <ul style="list-style: none; padding: 0;">
+                ${recsHtml}
+              </ul>
+            </div>
+
+          </div>
+        `;
+
+      } catch (error) {
+        console.error('Error loading project details:', error);
+        container.innerHTML = `
+          <div class="card" style="text-align: center; padding: 3rem;">
+            <h3 style="margin-bottom: 1rem;">Error Loading Case Study</h3>
+            <p style="margin-bottom: 1.5rem;">Please ensure you are running the project through a local server (Visual Studio Code Live Server).</p>
+            <a href="projects.html" class="btn btn-primary">Go to Projects Gallery</a>
+          </div>
+        `;
+      }
+    });
+  </script>
+</body>
+</html>

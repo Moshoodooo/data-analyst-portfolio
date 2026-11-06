@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects Gallery | Data Analyst Portfolio</title>
+  
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Core Stylesheets -->
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+</head>
+<body>
+
+  <!-- ==================== HEADER & NAVIGATION ==================== -->
+  <header class="header">
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <i class="fas fa-chart-line"></i> Oyeniran<span>.data</span>
+      </a>
+      
+      <nav class="nav-menu">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="skills.html" class="nav-link">Skills</a>
+        <a href="projects.html" class="nav-link">Projects</a>
+        <a href="experience.html" class="nav-link">Experience</a>
+        <a href="certifications.html" class="nav-link">Certifications</a>
+        <a href="resume.html" class="nav-link">Resume</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <button class="theme-toggle" aria-label="Toggle dark/light mode">
+          <i class="fas fa-moon"></i>
+        </button>
+        <button class="hamburger" aria-label="Toggle mobile menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== PROJECTS GALLERY SECTION ==================== -->
+  <section class="section" style="padding-top: calc(var(--nav-height) + 3rem);">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge" style="margin-bottom: 0.75rem;">Portfolio Gallery</span>
+        <h2>Data Analysis Projects</h2>
+        <p>Explore end-to-end analytical solutions complete with datasets, methodologies, SQL queries, and interactive dashboards.</p>
+      </div>
+
+      <!-- Search and Filter Controls -->
+      <div style="display: flex; justify-content: space-between; align-items: center; gap: 1.5rem; margin-bottom: 3rem; flex-wrap: wrap;" class="filter-controls-container">
+        
+        <!-- Category Filter Buttons -->
+        <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;" id="category-filters">
+          <button class="btn btn-primary filter-btn" data-filter="all" style="padding: 0.5rem 1.25rem; font-size: 0.9rem;">All Projects</button>
+          <button class="btn btn-outline filter-btn" data-filter="Business Intelligence" style="padding: 0.5rem 1.25rem; font-size: 0.9rem;">Power BI & BI</button>
+          <button class="btn btn-outline filter-btn" data-filter="Python & Machine Learning" style="padding: 0.5rem 1.25rem; font-size: 0.9rem;">Python & ML</button>
+          <button class="btn btn-outline filter-btn" data-filter="Advanced Excel & Financial Modeling" style="padding: 0.5rem 1.25rem; font-size: 0.9rem;">Financial Modeling</button>
+          <button class="btn btn-outline filter-btn" data-filter="SQL & Predictive Analytics" style="padding: 0.5rem 1.25rem; font-size: 0.9rem;">SQL & Analytics</button>
+        </div>
+
+        <!-- Search Input -->
+        <div style="position: relative; min-width: 280px;">
+          <input type="text" id="project-search" placeholder="Search projects by title, tool..." style="width: 100%; padding: 0.65rem 1rem 0.65rem 2.5rem; border: 1px solid var(--border-color); border-radius: 8px; background: var(--bg-card); color: var(--text-primary); font-size: 0.95rem;">
+          <i class="fas fa-search" style="position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); color: var(--text-muted); font-size: 0.9rem;"></i>
+        </div>
+
+      </div>
+
+      <!-- Projects Grid Container (Populated dynamically via JavaScript) -->
+      <div id="projects-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 2rem;">
+        <!-- Dynamic cards load here -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 Oyeniran Moshood Olayinka. All rights reserved. Built with precision & professional data standards.</p>
+    </div>
+  </footer>
+
+  <!-- Global JavaScript & Projects Script -->
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/projects.js"></script>
+</body>
+</html>

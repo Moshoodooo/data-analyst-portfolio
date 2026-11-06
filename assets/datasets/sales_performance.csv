@@ -1,0 +1,6 @@
+OrderID,OrderDate,Region,Category,SubCategory,Sales,Profit,Discount,Quantity
+ORD-2025-001,2025-01-10,North,Technology,Phones,1250.50,320.00,0.00,3
+ORD-2025-002,2025-01-12,South,Furniture,Bookcases,850.75,-45.20,0.20,2
+ORD-2025-003,2025-01-15,East,Office Supplies,Binders,145.20,42.10,0.00,5
+ORD-2025-004,2025-01-18,West,Technology,Machines,3400.00,890.50,0.10,2
+ORD-2025-005,2025-01-20,Central,Furniture,Tables,620.00,-115.00,0.40,4

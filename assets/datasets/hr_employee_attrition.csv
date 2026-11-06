@@ -1,0 +1,6 @@
+EmployeeID,Department,JobRole,MonthlyIncome,YearsAtCompany,OverTime,Attrition
+EMP-501,Sales,Sales Executive,65000,4,Yes,Yes
+EMP-502,Research & Development,Scientist,85000,7,No,No
+EMP-503,Sales,Representative,28000,1,Yes,Yes
+EMP-504,Human Resources,HR Manager,72000,5,No,No
+EMP-505,Research & Development,Engineer,92000,8,No,No

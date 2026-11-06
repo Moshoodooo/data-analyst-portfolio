@@ -1,0 +1,160 @@
+{
+  "projects": [
+    {
+      "id": "sales-performance-analysis",
+      "title": "Global Retail Sales & Profitability Optimization",
+      "category": "Business Intelligence",
+      "tools": ["Power BI", "SQL", "Excel", "DAX"],
+      "shortDescription": "Comprehensive analysis of 500k+ retail transactions to identify loss-making product sub-categories and optimize regional discounting strategies.",
+      "heroImage": "assets/images/projects/sales-dashboard.png",
+      "metrics": {
+        "totalRevenue": "$12.4M",
+        "netProfitMargin": "18.4%",
+        "costReduction": "$450K"
+      },
+      "businessProblem": "The client experienced a 12% revenue growth year-over-year, but net profit margins plateaued due to unmonitored regional shipping costs and excessive discounting on furniture categories.",
+      "objectives": [
+        "Identify high-performing vs. loss-making product sub-categories across 4 global regions.",
+        "Evaluate the impact of discount thresholds on customer order profitability.",
+        "Build an interactive executive Power BI dashboard for real-time regional tracking."
+      ],
+      "datasetDescription": "Global Superstore dataset containing 51,290 rows of transactional records, customer demographics, shipping modes, and profit metrics spanning 4 years.",
+      "dataCleaningProcess": [
+        "Handled 412 missing postal codes by performing geospatial imputation based on city and state mappings.",
+        "Removed 1,450 duplicate transaction records using Python (Pandas).",
+        "Standardized date formats and created calculated columns for profit margin percentage and shipping duration."
+      ],
+      "exploratoryAnalysis": "Analyzed correlation between discount rates and profit. Discovered that discounts exceeding 20% consistently yielded negative net margins across Central and South American regional markets.",
+      "codeSnippet": "SELECT Region, Sub_Category, SUM(Sales) AS Total_Sales, SUM(Profit) AS Total_Profit, (SUM(Profit) / SUM(Sales)) * 100 AS Profit_Margin FROM retail_transactions WHERE Order_Date >= '2023-01-01' GROUP BY Region, Sub_Category ORDER BY Profit_Margin ASC;",
+      "keyInsights": [
+        "Tables and Bookcases sub-categories operated at a cumulative net loss of $92,000 due to heavy discounting and high freight expenses.",
+        "Standard Class shipping accounted for 60% of total volume but maintained the most stable profit margins.",
+        "Top 5% of customers contributed 34% of total enterprise revenue."
+      ],
+      "businessRecommendations": [
+        "Cap maximum allowable discount at 15% for furniture product lines in low-margin regions.",
+        "Restructure logistics contracts with regional courier services in the Central region to reduce shipping overhead by 8%.",
+        "Reallocate marketing budget toward high-margin technology products in European and North American markets."
+      ],
+      "githubUrl": "https://github.com/username/sales-performance-analysis",
+      "liveDemoUrl": "https://app.powerbi.com/view?r=sample-sales-demo"
+    },
+    {
+      "id": "customer-behavior-segmentation",
+      "title": "E-Commerce Customer Lifetime Value & RFM Segmentation",
+      "category": "Python & Machine Learning",
+      "tools": ["Python", "Pandas", "Scikit-Learn", "Matplotlib", "Seaborn"],
+      "shortDescription": "Machine learning RFM (Recency, Frequency, Monetary) segmentation model categorizing 100,000+ digital shoppers to optimize retention campaigns.",
+      "heroImage": "assets/images/projects/customer-dashboard.png",
+      "metrics": {
+        "customerSegments": "5 Clusters",
+        "retentionLift": "+14.2%",
+        "churnReduction": "8.5%"
+      },
+      "businessProblem": "Marketing campaigns suffered from low conversion rates and high customer acquisition costs because promotional emails were broadcast uniformly without behavioral personalization.",
+      "objectives": [
+        "Segment active e-commerce users using K-Means clustering based on purchasing recency, frequency, and monetary spend.",
+        "Identify high-risk churn cohorts and pinpoint primary indicators of customer disengagement.",
+        "Formulate targeted retention offers tailored to each distinct behavioral segment."
+      ],
+      "datasetDescription": "E-commerce transaction logs including customer ID, invoice numbers, unit pricing, order quantities, and timestamps over a 24-month period.",
+      "dataCleaningProcess": [
+        "Filtered out cancelled orders (invoices starting with 'C') and negative quantities.",
+        "Imputed missing customer IDs for guest checkouts where session tokens matched registered accounts.",
+        "Normalized monetary values using Log Transformation to correct right-skewness before clustering."
+      ],
+      "exploratoryAnalysis": "Applied the Elbow Method to determine optimal cluster count ($k=5$). Evaluated silhouette scores to validate distinct separation between VIP champions, loyal regulars, and at-risk churners.",
+      "codeSnippet": "from sklearn.cluster import KMeans\nimport pandas as pd\n\n# RFM Feature Scaling and K-Means Clustering\nkmeans = KMeans(n_clusters=5, random_state=42, n_init=10)\nrfm_df['Cluster'] = kmeans.fit_predict(rfm_scaled)\nprint(rfm_df.groupby('Cluster').mean())",
+      "keyInsights": [
+        "At-risk churners represent 28% of total past buyers who have not purchased within 90 days.",
+        "VIP Champions generate 48% of total revenue despite making up only 7% of the active user base.",
+        "Average order value peaks during holiday promotional windows but drops sharply for new visitors."
+      ],
+      "businessRecommendations": [
+        "Launch an automated win-back email sequence offering tailored incentives to the 'At-Risk' cluster at day 75 of inactivity.",
+        "Implement a tiered loyalty program rewarding the top 10% spenders with early product access and free expedited shipping.",
+        "A/B test onboarding discount structures for first-time visitors to improve conversion."
+      ],
+      "githubUrl": "https://github.com/username/customer-behavior-segmentation",
+      "liveDemoUrl": "https://github.com/username/customer-behavior-segmentation"
+    },
+    {
+      "id": "financial-performance-analysis",
+      "title": "Corporate Financial Health & Cash Flow Forecasting",
+      "category": "Advanced Excel & Financial Modeling",
+      "tools": ["Advanced Excel", "Power Query", "VBA", "Tableau"],
+      "shortDescription": "Dynamic financial model evaluating liquidity ratios, working capital efficiency, and 3-year rolling cash flow projections.",
+      "heroImage": "assets/images/projects/financial-dashboard.png",
+      "metrics": {
+        "forecastAccuracy": "94.8%",
+        "workingCapital": "+22%",
+        "liquidityRatio": "2.1x"
+      },
+      "businessProblem": "Unpredictable seasonal cash flow fluctuations created short-term working capital crunches, impeding timely inventory procurement and R&D investments.",
+      "objectives": [
+        "Consolidate multi-subsidiary income statements, balance sheets, and cash flow statements into a unified financial repository.",
+        "Build an automated 3-year discounted cash flow (DCF) valuation and sensitivity analysis model.",
+        "Establish automated variance tracking comparing actual monthly performance against budgeted targets."
+      ],
+      "datasetDescription": "Quarterly financial statements, general ledger extracts, and accounts receivable/payable aging schedules from 2021 to 2025.",
+      "dataCleaningProcess": [
+        "Standardized divergent chart of accounts across 3 acquired subsidiary business units.",
+        "Reconciled inter-company transaction eliminations using Power Query merge transformations.",
+        "Adjusted historical figures for inflation and foreign exchange rate fluctuations."
+      ],
+      "exploratoryAnalysis": "Calculated key financial ratios including Quick Ratio, Current Ratio, Debt-to-Equity, and Return on Invested Capital (ROIC) across 16 quarters.",
+      "codeSnippet": "=IF(ISERROR(INDEX(Actuals, MATCH(1, (Subsidiary=$A2)*(Month=B$1), 0))), 0, INDEX(Actuals, MATCH(1, (Subsidiary=$A2)*(Month=B$1), 0)))",
+      "keyInsights": [
+        "Accounts receivable collection period increased by 14 days over the past year, directly constraining operating cash flow.",
+        "Operating expenses in administrative overhead grew 18% faster than gross revenue.",
+        "Debt service coverage ratio remains robust at 3.4x, well above lender covenants."
+      ],
+      "businessRecommendations": [
+        "Enforce stricter 30-day payment terms with Tier-2 clients and introduce early payment discounts (2/10 net 30).",
+        "Implement quarterly zero-based budgeting reviews for non-essential administrative expenditures.",
+        "Establish a dedicated revolving credit facility to buffer against seasonal receivable lags."
+      ],
+      "githubUrl": "https://github.com/username/financial-performance-analysis",
+      "liveDemoUrl": "https://public.tableau.com/app/profile/sample-financial-dashboard"
+    },
+    {
+      "id": "hr-employee-attrition-analysis",
+      "title": "HR Workforce Analytics & Employee Attrition Prediction",
+      "category": "SQL & Predictive Analytics",
+      "tools": ["SQL", "Python", "Power BI", "Statistics"],
+      "shortDescription": "In-depth workforce analysis identifying primary drivers of employee turnover and evaluating compensation equity across departments.",
+      "heroImage": "assets/images/projects/hr-dashboard.png",
+      "metrics": {
+        "attritionRate": "14.5%",
+        "retentionSavings": "$320K",
+        "satisfactionScore": "4.2/5"
+      },
+      "businessProblem": "Rising voluntary turnover among mid-level engineering and sales staff led to increased recruitment costs and project delivery delays.",
+      "objectives": [
+        "Analyze 5 years of HR employee records to identify statistically significant predictors of voluntary turnover.",
+        "Assess compensation competitiveness, promotion frequency, and manager effectiveness ratings.",
+        "Design a predictive retention scorecard for human resources leadership."
+      ],
+      "datasetDescription": "Anonymous HR dataset comprising 4,400 employee records with 35 demographic, performance, compensation, and tenure attributes.",
+      "dataCleaningProcess": [
+        "Encoded categorical variables (job satisfaction, work-life balance) into ordinal numerical scales.",
+        "Handled outlier salary figures by verifying executive compensation tiers against benchmark market data.",
+        "Created derived features including tenure-to-promotion ratio and distance-from-home commute impact."
+      ],
+      "exploratoryAnalysis": "Executed SQL queries and logistic regression models to evaluate hazard ratios associated with overtime work, stock option allocation, and years since last promotion.",
+      "codeSnippet": "SELECT Department, JobRole, COUNT(EmployeeID) AS Total_Staff, SUM(CASE WHEN Attrition = 'Yes' THEN 1 ELSE 0 END) AS Leavers, (CAST(SUM(CASE WHEN Attrition = 'Yes' THEN 1 ELSE 0 END) AS FLOAT) / COUNT(EmployeeID)) * 100 AS Attrition_Rate FROM hr_records GROUP BY Department, JobRole ORDER BY Attrition_Rate DESC;",
+      "keyInsights": [
+        "Employees working frequent mandatory overtime exhibited a 3.2x higher likelihood of voluntary resignation.",
+        "Lack of clear promotion pathways within 3 years was the primary driver of attrition among senior technical staff.",
+        "Commute distance exceeding 45 minutes strongly correlated with early tenure departure."
+      ],
+      "businessRecommendations": [
+        "Restructure overtime distribution policies and introduce compensatory time-off incentives for engineering teams.",
+        "Establish structured bi-annual career milestone reviews and transparent upward mobility pathways.",
+        "Expand hybrid remote-work flexibility to mitigate commute friction for regional staff."
+      ],
+      "githubUrl": "https://github.com/username/hr-employee-attrition-analysis",
+      "liveDemoUrl": "https://app.powerbi.com/view?r=sample-hr-dashboard"
+    }
+  ]
+}

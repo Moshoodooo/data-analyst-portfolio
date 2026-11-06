@@ -1,0 +1,6 @@
+CustomerID,RecencyDays,FrequencyOrders,MonetarySpend,Segment
+CUST-101,5,18,4550.00,Champions
+CUST-102,12,12,2800.50,Loyal Customers
+CUST-103,45,4,650.00,Potential Loyalist
+CUST-104,85,2,180.00,At-Risk
+CUST-105,120,1,75.00,Hibernating
