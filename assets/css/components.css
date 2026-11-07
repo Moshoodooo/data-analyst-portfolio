@@ -1,5 +1,5 @@
 /* ==========================================================================
-   DATA ANALYST PORTFOLIO - REUSABLE COMPONENTS
+   DATA ANALYST PORTFOLIO - REUSABLE COMPONENTS & AGGRESSIVE RESPONSIVENESS
    ========================================================================== */
 
 /* 1. Navigation Header */
@@ -90,6 +90,7 @@
   justify-content: center;
   cursor: pointer;
   transition: all var(--transition-speed);
+  flex-shrink: 0;
 }
 
 .theme-toggle:hover {
@@ -107,6 +108,7 @@
   width: 30px;
   height: 24px;
   position: relative;
+  z-index: 1001;
 }
 
 .hamburger span {
@@ -148,6 +150,7 @@
   cursor: pointer;
   transition: all var(--transition-speed);
   text-align: center;
+  white-space: nowrap;
 }
 
 .btn-primary {
@@ -203,11 +206,35 @@
   font-size: 0.9rem;
 }
 
-/* 5. Responsive Media Queries for Navigation */
+/* ==========================================================================
+   AGGRESSIVE RESPONSIVE BREAKPOINTS (TABLETS & MOBILE)
+   ========================================================================== */
+
+/* Tablets & Small Desktops (Max Width: 1024px) */
+@media (max-width: 1024px) {
+  .hero-grid,
+  .about-grid,
+  .contact-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2.5rem !important;
+    text-align: center;
+  }
+
+  .hero-grid div:first-child {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-grid p {
+    max-width: 100% !important;
+  }
+}
+
+/* Mobile Navigation Drawer & Compact Layouts (Max Width: 968px) */
 @media (max-width: 968px) {
   .hamburger {
     display: block;
-    z-index: 1001;
   }
 
   .nav-menu {
@@ -215,18 +242,81 @@
     top: 0;
     right: -100%;
     width: 100%;
-    max-width: 320px;
+    max-width: 300px;
     height: 100vh;
     background-color: var(--bg-secondary);
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    box-shadow: -5px 0 25px rgba(0, 0, 0, 0.15);
-    transition: right 0.4s ease;
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.2);
+    transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     z-index: 1000;
+    gap: 2rem;
   }
 
   .nav-menu.active {
     right: 0;
+  }
+
+  .nav-link {
+    font-size: 1.15rem;
+  }
+}
+
+/* Small Tablets & Mobile Devices (Max Width: 768px) */
+@media (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+
+  .section {
+    padding: 3.5rem 0;
+  }
+
+  .container {
+    padding: 0 1rem;
+  }
+
+  h1 {
+    font-size: 2.4rem !important;
+  }
+
+  h2 {
+    font-size: 1.85rem !important;
+  }
+
+  .card {
+    padding: 1.5rem !important;
+  }
+
+  /* Force all grids to single column on mobile */
+  [style*="grid-template-columns"] {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+
+  .filter-controls-container {
+    flex-direction: column;
+    align-items: stretch !important;
+  }
+
+  #category-filters {
+    justify-content: center;
+  }
+}
+
+/* Extra Small Mobile Devices / iPhone SE (Max Width: 480px) */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 2rem !important;
+  }
+
+  .btn {
+    width: 100%;
+    padding: 0.75rem 1rem;
+  }
+
+  .hero-grid .badge {
+    font-size: 0.75rem;
   }
 }
