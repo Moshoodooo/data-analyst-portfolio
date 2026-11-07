@@ -23,9 +23,16 @@
   <!-- ==================== HEADER & NAVIGATION ==================== -->
   <header class="header">
     <div class="nav-container">
-      <a href="index.html" class="logo">
-        <i class="fas fa-chart-line"></i> Oyeniran<span>.data</span>
-      </a>
+      
+      <!-- Top-Left Bar: Back Icon Button beside the Logo -->
+      <div style="display: flex; align-items: center; gap: 0.75rem;">
+        <a href="projects.html" class="back-icon-btn" title="Back to Projects Gallery">
+          <i class="fas fa-arrow-left"></i>
+        </a>
+        <a href="index.html" class="logo">
+          <i class="fas fa-chart-line"></i> Oyeniran<span>.data</span>
+        </a>
+      </div>
       
       <nav class="nav-menu">
         <a href="index.html" class="nav-link">Home</a>
@@ -55,13 +62,6 @@
   <section class="section" style="padding-top: calc(var(--nav-height) + 3rem);">
     <div class="container" style="max-width: 900px;">
       
-      <!-- Back Link with Icon Button -->
-      <div style="margin-bottom: 2rem;">
-        <a href="projects.html" class="btn btn-outline" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem; font-size: 0.9rem;">
-          <i class="fas fa-arrow-left"></i> Back to Projects Gallery
-        </a>
-      </div>
-
       <!-- Dynamic Project Details Container -->
       <div id="project-detail-container">
         <p style="text-align: center; color: var(--text-secondary); padding: 4rem 0;">Loading project case study...</p>

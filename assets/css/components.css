@@ -38,6 +38,7 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  text-decoration: none;
 }
 
 .logo span {
@@ -56,6 +57,7 @@
   color: var(--text-secondary);
   position: relative;
   transition: color var(--transition-speed);
+  text-decoration: none;
 }
 
 .nav-link:hover, .nav-link.active {
@@ -77,8 +79,9 @@
   width: 100%;
 }
 
-/* Theme Toggle Button */
-.theme-toggle {
+/* Theme Toggle Button & Top-Left Back Icon Button */
+.theme-toggle,
+.back-icon-btn {
   background: var(--bg-primary);
   border: 1px solid var(--border-color);
   color: var(--text-primary);
@@ -91,9 +94,11 @@
   cursor: pointer;
   transition: all var(--transition-speed);
   flex-shrink: 0;
+  text-decoration: none;
 }
 
-.theme-toggle:hover {
+.theme-toggle:hover,
+.back-icon-btn:hover {
   background-color: var(--accent-primary);
   color: #ffffff;
   border-color: var(--accent-primary);
@@ -151,6 +156,7 @@
   transition: all var(--transition-speed);
   text-align: center;
   white-space: nowrap;
+  text-decoration: none;
 }
 
 .btn-primary {
