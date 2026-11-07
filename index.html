@@ -91,11 +91,11 @@
           </div>
         </div>
 
-        <!-- Profile Visual / Card Placeholder -->
+        <!-- Profile Visual Card with Portrait -->
         <div style="display: flex; justify-content: center;">
           <div class="card" style="width: 100%; max-width: 420px; text-align: center; padding: 2.5rem; position: relative; overflow: hidden;">
-            <div style="width: 150px; height: 150px; border-radius: 50%; background: var(--accent-gradient); margin: 0 auto 1.5rem auto; display: flex; align-items: center; justify-content: center; color: white; font-size: 3.5rem; box-shadow: var(--shadow-md);">
-              <i class="fas fa-user-tie"></i>
+            <div style="width: 100%; max-width: 240px; margin: 0 auto 1.5rem auto; border-radius: 16px; overflow: hidden; border: 3px solid var(--accent-primary); box-shadow: var(--shadow-md);">
+              <img src="assets/images/profile.jpeg" alt="Oyeniran Moshood Olayinka - Data Analyst" style="width: 100%; height: auto; display: block; object-fit: cover;">
             </div>
             <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Oyeniran Moshood O.</h3>
             <p style="color: var(--accent-primary); font-weight: 600; margin-bottom: 1.25rem;">Professional Data Analyst</p>
@@ -180,7 +180,11 @@
 
   <!-- ==================== FOOTER ==================== -->
   <footer class="footer">
-    <div class="container">
+    <div class="container" style="display: flex; flex-direction: column; align-items: center; gap: 0.75rem;">
+      <div style="display: flex; gap: 1rem; margin-bottom: 0.5rem;">
+        <a href="https://github.com/Moshoodooo" target="_blank" class="theme-toggle" style="text-decoration: none;" title="GitHub Profile"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/moshood-oyeniran-405592217/" target="_blank" class="theme-toggle" style="text-decoration: none;" title="LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
+      </div>
       <p>&copy; 2026 Oyeniran Moshood Olayinka. All rights reserved. Built with precision & professional data standards.</p>
     </div>
   </footer>
