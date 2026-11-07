@@ -55,9 +55,9 @@
   <section class="section" style="padding-top: calc(var(--nav-height) + 3rem);">
     <div class="container" style="max-width: 900px;">
       
-      <!-- Back Link -->
+      <!-- Back Link with Icon Button -->
       <div style="margin-bottom: 2rem;">
-        <a href="projects.html" style="color: var(--accent-primary); font-weight: 600; font-size: 0.95rem; display: inline-flex; align-items: center; gap: 0.5rem;">
+        <a href="projects.html" class="btn btn-outline" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem; font-size: 0.9rem;">
           <i class="fas fa-arrow-left"></i> Back to Projects Gallery
         </a>
       </div>
@@ -77,8 +77,9 @@
     </div>
   </footer>
 
-  <!-- Global JavaScript -->
+  <!-- Global JavaScript & Animations Script -->
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/animations.js"></script>
   
   <!-- Inline Case Study Renderer Script -->
   <script>
@@ -156,7 +157,7 @@
               ${toolsHtml}
             </div>
 
-            <div style="display: flex; gap: 1rem; margin-bottom: 2.5rem;">
+            <div style="display: flex; gap: 1rem; margin-bottom: 2.5rem; flex-wrap: wrap;">
               <a href="${project.githubUrl}" target="_blank" class="btn btn-outline"><i class="fab fa-github"></i> View GitHub Repository</a>
               <a href="${project.liveDemoUrl}" target="_blank" class="btn btn-primary"><i class="fas fa-external-link-alt"></i> View Live Dashboard</a>
             </div>
@@ -223,8 +224,5 @@
       }
     });
   </script>
-  
-  <!-- Animations Script -->
-  <script src="assets/js/animations.js"></script>
 </body>
 </html>
